@@ -28,14 +28,14 @@ N.B - This has been done with approx 1 weeks worth of python under my belt, so t
 - Edit the bots commands in botfather and paste in the below:
 
 ```
-status - Check your Emby Server is Online
-refreshlibrary - Refreshes all Media Libraries
-refreshguide - Refreshes TV Guide Data
-users - Lists Emby Users
-devices - Lists Emby Devices
-activity - Lists Last 10 Activity Items
-backup - Triggers a Configuration Backup
-help - Prints this message
+status - EMBY服务器状态
+refreshlibrary - 刷新全部媒体库
+refreshguide - 刷新电视指南数据
+users - EMBY用户列表
+devices - EMBY设备列表
+activity - 最后10个活动项目
+backup - 触发备份
+help - 机器人帮助
 ```
     
 #### Docker
@@ -66,11 +66,11 @@ help - Prints this message
     
 ##### From DockerHub
 
-You need to specify the config vars in the docker run command:
+您需要在 docker run 命令中指定配置变量：
 
 - BOT: Telegram Bot Token
 - USER: Telegram User ID
-- SERVER: Address of Emby Server - this requires the http(s):// prefix as well as a trailing slash (see below example)
+- SERVER: EMBY 服务器地址 - 这必须 http(s):// 前缀和斜杠（见下面的例子）
 - API: Emby API Key
 
 
