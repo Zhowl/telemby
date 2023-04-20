@@ -1,5 +1,5 @@
 ### TELEMBY
-##### A simple Telegram Bot for Emby
+##### 一个用于 Emby 的简单 Telegram 机器人
 ###### Powered by Docker
 
 This is a simple python-based bot to carry out some trivial Emby tasks and retrieve some data.
@@ -10,22 +10,30 @@ It is configured to only allow input from one user (i.e You) so you need to spec
 
 N.B - This has been done with approx 1 weeks worth of python under my belt, so the code may be (is) ugly!
 
+这是一个基于 Python 的简单机器人，可执行一些琐碎的 Emby 任务并检索一些数据。
+
+为方便起见，它被包含在一个 Docker 容器中。
+
+它配置为仅允许来自一个用户（即您）的输入，因此您需要在配置中指定您的 Telegram 用户 ID。
+
+注 - 这是在我手头大约一周的 Python 经验下完成的，所以代码可能很丑陋！
+
 ### Known Issues:
-- Json formatting isn't pretty
+- Json formatting isn't pretty JSON 格式不美观
 
 ### To Do:
-- Slim down the base image
-- Search Library
-- Add/Disable Users
-- Reset User Passwords 
+- Slim down the base image	精简基础镜像
+- Search Library		搜索库
+- Add/Disable Users		添加/禁用用户
+- Reset User Passwords 		重置用户密码
 
 ### Setup:
 
 #### Telegram  
-- Retrieve your Telegram UID using a tool such as JSON Dump Bot
-- Create a Bot Using Botfather
-- Retrieve your Bot Token
-- Edit the bots commands in botfather and paste in the below:
+- Retrieve your Telegram UID using a tool such as JSON Dump Bot		使用 JSON Dump Bot 等工具检索您的 Telegram UID
+- Create a Bot Using Botfather						使用 Botfather 创建一个 Bot
+- Retrieve your Bot Token						检索您的 Bot Token
+- Edit the bots commands in botfather and paste in the below:		在 botfather 中编辑机器人命令，并粘贴以下内容：
 
 ```
 status - EMBY服务器状态
