@@ -124,7 +124,7 @@ def update_library(bot, update):
     config = get_config()
     if update.message.from_user.id != int(config['USER_ID']):
         bot.sendMessage(chat_id=update.message.chat_id,
-                        text="UNAUTHORIZED")
+                        text="未经授权")
     else:
         url = get_endpoint("Library/Refresh")
         try:
@@ -139,7 +139,7 @@ def update_guide(bot, update):
     config = get_config()
     if update.message.from_user.id != int(config['USER_ID']):
         bot.sendMessage(chat_id=update.message.chat_id,
-                        text="UNAUTHORIZED")
+                        text="未经授权")
     else:
         try:
             run_sched_task("Refresh Guide")
@@ -152,7 +152,7 @@ def trigger_backup(bot, update):
     config = get_config()
     if update.message.from_user.id != int(config['USER_ID']):
         bot.sendMessage(chat_id=update.message.chat_id,
-                        text="UNAUTHORIZED")
+                        text="未经授权")
     else:
         try:
             run_sched_task("Configuration Backup")
@@ -165,7 +165,7 @@ def restart_server(bot, update):
     config = get_config()
     if update.message.from_user.id != int(config['USER_ID']):
         bot.sendMessage(chat_id=update.message.chat_id,
-                        text="UNAUTHORIZED")
+                        text="未经授权")
     else:
         url = get_endpoint("System/Restart")
         try:
@@ -183,7 +183,7 @@ def check_server(bot, update):
         data = response.text
         if data == "Emby Server":
             # update.message.reply_text("Your Server is Online")
-            return "Your Server is Online"
+            return "您的服务器在线"
     except:
         update.message.reply_text("ERROR")
 
@@ -192,7 +192,7 @@ def system_info(bot, update):
     config = get_config()
     if update.message.from_user.id != int(config['USER_ID']):
         bot.sendMessage(chat_id=update.message.chat_id,
-                        text="UNAUTHORIZED")
+                        text="未经授权")
     else:
         system_info_item('System/Info', 'OperatingSystemDisplayName')
         Status = str(check_server(bot, update))
@@ -208,16 +208,16 @@ def system_info(bot, update):
 
         msg = Status + " \n"
         msg += " \n"
-        msg += "Server Name: {} \n".format(Server_Name)
-        msg += "Local Address: {} \n".format(Local_Address)
-        msg += "Remote Address: {} \n".format(WAN_Address)
-        msg += "Version: {} \n".format(Emby_Version)
-        msg += "Update Available:  {} \n".format(Update_Available)
+        msg += "服务器名称: {} \n".format(Server_Name)
+        msg += "局域网访问: {} \n".format(Local_Address)
+        msg += "广域网访问: {} \n".format(WAN_Address)
+        msg += "Emby版本: {} \n".format(Emby_Version)
+        msg += "可用更新:  {} \n".format(Update_Available)
         msg += " \n"
-        msg += "Movies: {} \n".format(Movies)
-        msg += "Series: {} \n".format(Series)
-        msg += "Episodes: {} \n".format(Episodes)
-        msg += "TV Channels: {} \n".format(Channels)
+        msg += "电影数量: {} \n".format(Movies)
+        msg += "系列数量: {} \n".format(Series)
+        msg += "剧集数量: {} \n".format(Episodes)
+        msg += "电视频道: {} \n".format(Channels)
 
         bot.send_message(chat_id=update.message.chat_id,
                          text=msg.format(
@@ -229,7 +229,7 @@ def list_users(bot, update):
     config = get_config()
     if update.message.from_user.id != int(config['USER_ID']):
         bot.sendMessage(chat_id=update.message.chat_id,
-                        text="UNAUTHORIZED")
+                        text="未经授权")
     else:
         users = str(user_info())
 
@@ -246,7 +246,7 @@ def list_activity(bot, update):
     config = get_config()
     if update.message.from_user.id != int(config['USER_ID']):
         bot.sendMessage(chat_id=update.message.chat_id,
-                        text="UNAUTHORIZED")
+                        text="未经授权")
     else:
         feed = activity_feed()
         update.message.reply_text(feed)
@@ -256,7 +256,7 @@ def list_devices(bot, update):
     config = get_config()
     if update.message.from_user.id != int(config['USER_ID']):
         bot.sendMessage(chat_id=update.message.chat_id,
-                        text="UNAUTHORIZED")
+                        text="未经授权")
     else:
         devices = (device_info())
 
@@ -273,7 +273,7 @@ def unknown(bot, update):
     config = get_config()
     if update.message.from_user.id != int(config['USER_ID']):
         bot.sendMessage(chat_id=update.message.chat_id,
-                        text="UNAUTHORIZED")
+                        text="未经授权")
     else:
         update.message.reply_text("Sorry, I didn't understand that command.")
 
@@ -282,17 +282,17 @@ def show_help(bot, update):
     config = get_config()
     if update.message.from_user.id != int(config['USER_ID']):
         bot.sendMessage(chat_id=update.message.chat_id,
-                        text="UNAUTHORIZED")
+                        text="未经授权")
 
     else:
-        msg = "/status - Check your Emby Server is Online \n"
-        msg += "/refreshlibrary - Refreshes all Media Libraries \n"
-        msg += "/refreshguide - Refreshes TV Guide Data \n"
-        msg += "/users - Lists Emby Users \n"
-        msg += "/devices - Lists Emby Devices \n"
-        msg += "/activity - Lists Last 10 Activity Items \n"
-        msg += "/backup - Triggers a Configuration Backup \n"
-        msg += "/help - Prints this message"
+        msg = "/status - "检查您的Emby服务器是否在线e \n"
+        msg += "/refreshlibrary - 刷新所有媒体库 \n"
+        msg += "/refreshguide - 刷新电视指南数据 \n"
+        msg += "/users - 列出Emby用户 \n"
+        msg += "/devices - 列出Emby设备 \n"
+        msg += "/activity - 列出最后10个活动项目 \n"
+        msg += "/backup - 触发配置备份 \n"
+        msg += "/help - 打印此消息"
 
         # Send the message
         bot.send_message(chat_id=update.message.chat_id,
@@ -332,14 +332,14 @@ def start(bot, update):
         system_info(bot, update)
         keyboard(bot, update)
 
-        msg = "/status - Check your Emby Server is Online \n"
-        msg += "/refreshlibrary - Refreshes all Media Libraries \n"
-        msg += "/refreshguide - Refreshes TV Guide Data \n"
-        msg += "/users - Lists Emby Users \n"
-        msg += "/devices - Lists Emby Devices \n"
-        msg += "/activity - Lists Last 10 Activity Items \n"
-        msg += "/backup - Triggers a Configuration Backup \n"
-        msg += "/help - Prints this message"
+        msg = "/status - "检查您的Emby服务器是否在线e \n"
+        msg += "/refreshlibrary - 刷新所有媒体库 \n"
+        msg += "/refreshguide - 刷新电视指南数据 \n"
+        msg += "/users - 列出Emby用户 \n"
+        msg += "/devices - 列出Emby设备 \n"
+        msg += "/activity - 列出最后10个活动项目 \n"
+        msg += "/backup - 触发配置备份 \n"
+        msg += "/help - 打印此消息"
 
         bot.send_message(chat_id=update.message.chat_id,
                          text=msg.format(
