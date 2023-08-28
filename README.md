@@ -67,10 +67,10 @@ help - 打印此消息
   	```
 
 - Build the Image:
-    ` docker build -t telemby .`
+    ` docker build -t telemby-sci .`
    
 - Run Container from Image
-    `docker run -d --name=telemby telemby`
+    `docker run -d --name=telemby-sci telemby-sci`
     
 ##### From DockerHub
 
