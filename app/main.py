@@ -130,7 +130,7 @@ def update_library(bot, update):
         try:
             response = requests.post(url)
             data = response.text
-            update.message.reply_text("Library Refresh Started")
+            update.message.reply_text("开始刷新媒体库")
         except:
             update.message.reply_text("ERROR")
 
@@ -143,7 +143,7 @@ def update_guide(bot, update):
     else:
         try:
             run_sched_task("Refresh Guide")
-            update.message.reply_text("TV Guide Refresh Started")
+            update.message.reply_text("开始刷新电视指南")
         except:
             update.message.reply_text("ERROR")
 
@@ -156,9 +156,9 @@ def trigger_backup(bot, update):
     else:
         try:
             run_sched_task("Configuration Backup")
-            update.message.reply_text("Configuration Backup Requested")
+            update.message.reply_text("开始请求备份")
         except:
-            update.message.reply_text("ERROR")
+            update.message.reply_text("ERROR - 请求备份")
 
 
 def restart_server(bot, update):
@@ -171,9 +171,9 @@ def restart_server(bot, update):
         try:
             response = requests.post(url)
             data = response.text
-            update.message.reply_text("Server will be Restarted")
+            update.message.reply_text("服务器将重新启动")
         except:
-            update.message.reply_text("ERROR")
+            update.message.reply_text("ERROR - 重启服务")
 
 
 def check_server(bot, update):
@@ -185,7 +185,7 @@ def check_server(bot, update):
             # update.message.reply_text("Your Server is Online")
             return "您的服务器在线"
     except:
-        update.message.reply_text("ERROR")
+        update.message.reply_text("ERROR - 服务器状态")
 
 
 def system_info(bot, update):
@@ -233,7 +233,7 @@ def list_users(bot, update):
     else:
         users = str(user_info())
 
-        msg = "Enabled Users: \n"
+        msg = "启用的用户: \n"
         msg += users
 
         bot.send_message(chat_id=update.message.chat_id,
@@ -260,7 +260,7 @@ def list_devices(bot, update):
     else:
         devices = (device_info())
 
-        msg = "Connected Devices: \n"
+        msg = "连接设备: \n"
         msg += devices
 
         bot.send_message(chat_id=update.message.chat_id,
@@ -309,9 +309,8 @@ def start(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Hi, {}".format(update.message.from_user.first_name))
 
     if update.message.from_user.id != int(config['USER_ID']):
-        msg = "Hello {user_name} \n"
-        msg += "You are not authorized to use this bot \n"
-        msg += "Please enter your Telegram ID in the config.ini file \n"
+        msg = "你好 {user_name} \n"
+        msg += "你无权使用此机器人 \n"
 
         # Send the message
         bot.send_message(chat_id=update.message.chat_id,
@@ -324,7 +323,7 @@ def start(bot, update):
                            action=ChatAction.TYPING)
         time.sleep(1)
         bot.sendMessage(chat_id=update.message.chat_id,
-                        text="Checking your Emby Server...")
+                        text="正在检查 Emby Server...")
         bot.sendChatAction(chat_id=update.message.chat_id,
                            action=ChatAction.TYPING)
         time.sleep(0.5)
