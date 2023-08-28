@@ -18,21 +18,21 @@ def check_server(SERVER, EMBY_API):
     data = response.text
     if data == "Emby Server":
         # update.message.reply_text("Your Server is Online")
-        return "您的服务器在线"
+        return "✅您的服务器在线"
 
 
 def system_info():
     system_info_item('System/Info', 'OperatingSystemDisplayName', SERVER, EMBY_API)
     Status = str(check_server(SERVER, EMBY_API))
-    Server_Name = system_info_item('System/Info', ' 服务器名称', SERVER, EMBY_API)
-    Local_Address = system_info_item('System/Info', '局域网访问', SERVER, EMBY_API)
-    WAN_Address = system_info_item('System/Info', '广域网访问', SERVER, EMBY_API)
-    Emby_Version = system_info_item('System/Info', 'Emby版本', SERVER, EMBY_API)
-    Update_Available = str(system_info_item('System/Info', '可用更新', SERVER, EMBY_API))
-    Movies = str(system_info_item('Items/Counts', '电影数量', SERVER, EMBY_API))
-    Series = str(system_info_item('Items/Counts', '单集数量', SERVER, EMBY_API))
-    Episodes = str(system_info_item('Items/Counts', '剧集数量', SERVER, EMBY_API))
-    Channels = str(system_info_item('LiveTV/Channels', '电视频道', SERVER, EMBY_API))
+    Server_Name = system_info_item('System/Info', 'ServerName', SERVER, EMBY_API)
+    Local_Address = system_info_item('System/Info', 'LocalAddress', SERVER, EMBY_API)
+    WAN_Address = system_info_item('System/Info', 'WanAddress', SERVER, EMBY_API)
+    Emby_Version = system_info_item('System/Info', 'Version', SERVER, EMBY_API)
+    Update_Available = str(system_info_item('System/Info', 'HasUpdateAvailable', SERVER, EMBY_API))
+    Movies = str(system_info_item('Items/Counts', 'MovieCount', SERVER, EMBY_API))
+    Series = str(system_info_item('Items/Counts', 'SeriesCount', SERVER, EMBY_API))
+    Episodes = str(system_info_item('Items/Counts', 'EpisodeCount', SERVER, EMBY_API))
+    Channels = str(system_info_item('LiveTV/Channels', 'TotalRecordCount', SERVER, EMBY_API))
     message = """
     {}
     服务器名称: {}
