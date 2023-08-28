@@ -285,7 +285,7 @@ def show_help(bot, update):
                         text="未经授权")
 
     else:
-        msg = "/status - "检查您的Emby服务器是否在线e \n"
+        msg = "/status - 检查您的Emby服务器是否在线 \n"
         msg += "/refreshlibrary - 刷新所有媒体库 \n"
         msg += "/refreshguide - 刷新电视指南数据 \n"
         msg += "/users - 列出Emby用户 \n"
@@ -332,7 +332,7 @@ def start(bot, update):
         system_info(bot, update)
         keyboard(bot, update)
 
-        msg = "/status - "检查您的Emby服务器是否在线e \n"
+        msg = "/status - 检查您的Emby服务器是否在线 \n"
         msg += "/refreshlibrary - 刷新所有媒体库 \n"
         msg += "/refreshguide - 刷新电视指南数据 \n"
         msg += "/users - 列出Emby用户 \n"
