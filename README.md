@@ -36,14 +36,14 @@ N.B - This has been done with approx 1 weeks worth of python under my belt, so t
 - Edit the bots commands in botfather and paste in the below:		在 botfather 中编辑机器人命令，并粘贴以下内容：
 
 ```
-status - EMBY服务器状态
-refreshlibrary - 刷新全部媒体库
+status - 检查您的Emby服务器是否在线
+refreshlibrary - 刷新所有媒体库
 refreshguide - 刷新电视指南数据
-users - EMBY用户列表
-devices - EMBY设备列表
-activity - 最后10个活动项目
-backup - 触发备份
-help - 机器人帮助
+users - 列出Emby用户
+devices - 列出Emby设备
+activity - 列出最后10个活动项目
+backup - 触发配置备份
+help - 打印此消息
 ```
     
 #### Docker
