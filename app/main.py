@@ -183,7 +183,7 @@ def check_server(bot, update):
         data = response.text
         if data == "Emby Server":
             # update.message.reply_text("Your Server is Online")
-            return "您的服务器在线"
+            return "✅您的服务器在线"
     except:
         update.message.reply_text("ERROR - 服务器状态")
 
