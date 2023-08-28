@@ -25,14 +25,14 @@ def system_info():
     system_info_item('System/Info', 'OperatingSystemDisplayName', SERVER, EMBY_API)
     Status = str(check_server(SERVER, EMBY_API))
     Server_Name = system_info_item('System/Info', ' 服务器名称', SERVER, EMBY_API)
-    Local_Address = system_info_item('System/Info', '本地地址', SERVER, EMBY_API)
-    WAN_Address = system_info_item('System/Info', 'WAN 地址', SERVER, EMBY_API)
-    Emby_Version = system_info_item('System/Info', 'Emby 版本', SERVER, EMBY_API)
-    Update_Available = str(system_info_item('System/Info', '是否有更新', SERVER, EMBY_API))
+    Local_Address = system_info_item('System/Info', '局域网访问', SERVER, EMBY_API)
+    WAN_Address = system_info_item('System/Info', '广域网访问', SERVER, EMBY_API)
+    Emby_Version = system_info_item('System/Info', 'Emby版本', SERVER, EMBY_API)
+    Update_Available = str(system_info_item('System/Info', '可用更新', SERVER, EMBY_API))
     Movies = str(system_info_item('Items/Counts', '电影数量', SERVER, EMBY_API))
-    Series = str(system_info_item('Items/Counts', '电视剧数量', SERVER, EMBY_API))
+    Series = str(system_info_item('Items/Counts', '单集数量', SERVER, EMBY_API))
     Episodes = str(system_info_item('Items/Counts', '剧集数量', SERVER, EMBY_API))
-    Channels = str(system_info_item('LiveTV/Channels', '频道数量', SERVER, EMBY_API))
+    Channels = str(system_info_item('LiveTV/Channels', '电视频道', SERVER, EMBY_API))
     message = """
     {}
     服务器名称: {}
