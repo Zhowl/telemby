@@ -36,15 +36,15 @@ def system_info():
     message = """
     {}
     服务器名称: {}
-    本机地址: {}
-    远程地址: {}
+    局域网访问: {}
+    广域网访问: {}
     Emby版本: {}
-    是否需要升级: {}
+    可用更新: {}
     
     电影数量: {}
-    电视剧数量: {}
+    单集数量: {}
     剧集数量: {}
-    电视频道数量: {}
+    电视频道: {}
     """.format(Status, Server_Name, Local_Address, WAN_Address, Emby_Version, Update_Available, Movies, Series, Episodes, Channels)
     return message
 
